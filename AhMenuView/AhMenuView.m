@@ -96,6 +96,10 @@
     scrView.showsVerticalScrollIndicator = NO;
     [self addSubview:scrView];
     self.scrView = scrView;
+    
+    // boomline
+    _BoomLine= [[UIView alloc]init];
+    [self.BoomView addSubview:self.BoomLine];
 }
 
 - (void)layoutSubviews{
@@ -145,9 +149,7 @@
     
 //     MYLog(@"菜单栏添加的标题数量:%zd",self.VcArr.count);
     
-    // boomline
-    _BoomLine= [[UIView alloc]init];
-    [self.BoomView addSubview:self.BoomLine];
+    
     
     //  topscrView
     CGFloat btnY = 0;
