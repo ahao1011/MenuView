@@ -16,6 +16,7 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet AhMenuView *menuView2;
 @end
 
 @implementation ViewController
@@ -56,12 +57,45 @@
     vc10.title = @"更多";
     
     
-    AhMenuView *menview = [[AhMenuView alloc]initWithVCNames:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10] frame:CGRectMake(0, 64, K_Screen_Width, K_Screen_Height-64-49) VCBlock:^(UIViewController *vc, NSInteger index) {
-        
-        NSLog(@"第%zd个控制器View=====控制器为:%@",index,vc);
-    }];
+    /**
+     *  这是xib建立的方法,  需要注意的是  MAhMenuView的含义是包含了 菜单栏工具条和其下面的控制器的View    所以在xib中MenuView的Frame应该时以上2者的和. 具体参看Main.storyboard  
+     */
+    _menuView2.VcArr =@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10];
     
-    [self.view addSubview:menview];
+    _menuView2.block = ^(UIViewController *vc, NSInteger index) {
+    
+                    NSLog(@"第%zd个控制器View=====控制器为:%@",index,vc);
+                };
+    
+
+    /**
+     这是代码创建时第一种方法,也是使用代码时推荐用的
+     */
+    
+//    AhMenuView *menview = [[AhMenuView alloc]initWithVCNames:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10] frame:CGRectMake(0, 64, K_Screen_Width, K_Screen_Height-64-49) VCBlock:^(UIViewController *vc, NSInteger index) {
+//        
+//        NSLog(@"第%zd个控制器View=====控制器为:%@",index,vc);
+//    }];
+    
+//     [self.view addSubview:menview];
+    
+    
+    
+    /**
+     这是代码创建时第二种方法,我将 VcArr和block暴露在.h中 不推荐使用.
+     */
+    
+//    AhMenuView *menview = [[AhMenuView alloc]initWithFrame:CGRectMake(0, 64, K_Screen_Width, K_Screen_Height-64-49)];
+//    
+//    menview.VcArr =@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10];
+//    
+//    menview.block = ^(UIViewController *vc, NSInteger index) {
+//        
+//                NSLog(@"第%zd个控制器View=====控制器为:%@",index,vc);
+//            };
+//   
+   
+//    [self.view addSubview:menview];
     
     
     

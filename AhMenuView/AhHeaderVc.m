@@ -10,7 +10,7 @@
 #import "Header.h"
 #import "textVc.h"
 #import "AhMenuView.h"
-@interface AhHeaderVc ()<UITableViewDataSource,UITableViewDelegate>
+@interface AhHeaderVc ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong)AhMenuView *menuView;
 
@@ -86,7 +86,6 @@
     if (indexPath.section==1 && indexPath.row==0) {
         
         AhMenuView *menView = [self makeMenuView];
-        menView.topscrView.backgroundColor = [UIColor grayColor];
         [cell addSubview:menView];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%zd",indexPath.section];
@@ -107,18 +106,6 @@
     }
     return 44;
 }
--  (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    if (section==1) {
-        
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, K_Screen_Width, 30)];
-        AhMenuView *menView = [self makeMenuView];
-        [view addSubview:menView.topscrView];
-        view.backgroundColor = [UIColor redColor];
-        return view;
-    }
-    
-    return nil;
-}
+
 
 @end

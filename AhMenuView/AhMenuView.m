@@ -19,17 +19,17 @@
 
 #import "AhMenuView.h"
 #import "Header.h"
-typedef void(^mennuViewBlock)(UIViewController *vc, NSInteger index);
+
 @interface AhMenuView ()<UIScrollViewDelegate>
 
-//@property (nonatomic,strong)UIScrollView *topscrView;
+@property (nonatomic,strong)UIScrollView *topscrView;
 @property (nonatomic,strong)UIScrollView *BoomView;
 @property (nonatomic,strong)UIView *BoomLine;
-//@property (nonatomic,strong)UIScrollView *scrView;
-@property (nonatomic,copy)mennuViewBlock block ;
-
-
-@property (nonatomic ,strong)NSArray  *VcArr;  // 控制器数组
+@property (nonatomic,strong)UIScrollView *scrView;
+//@property (nonatomic,copy)mennuViewBlock block ;
+//
+//
+//@property (nonatomic ,strong)NSArray  *VcArr;  // 控制器数组
 @property (nonatomic ,strong)NSArray  *BtnArr;  // 控制器数组
 
 @end
@@ -44,7 +44,6 @@ typedef void(^mennuViewBlock)(UIViewController *vc, NSInteger index);
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _BtnArr = @[].mutableCopy;
         [self addsubViews];
     }
     return self;
@@ -53,9 +52,8 @@ typedef void(^mennuViewBlock)(UIViewController *vc, NSInteger index);
 {
     self = [super initWithCoder:coder];
     if (self) {
-        _BtnArr = @[].mutableCopy;
+       
         [self addsubViews];
-
     }
     return self;
 }
@@ -69,6 +67,9 @@ typedef void(^mennuViewBlock)(UIViewController *vc, NSInteger index);
 }
 
 - (void)addsubViews{
+    
+    
+     _BtnArr = @[].mutableCopy;
     
     //  topscrView
     UIScrollView *topView = [[UIScrollView alloc]init];

@@ -15,11 +15,27 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fd-7G-Y4N" customClass="AhMenuView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="447"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.18999280430000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9Fd-7G-Y4N" secondAttribute="trailing" id="9m3-pQ-8uY"/>
+                            <constraint firstItem="9Fd-7G-Y4N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GUn-Xy-B0E"/>
+                            <constraint firstItem="9Fd-7G-Y4N" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="X0J-bG-TBP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9Fd-7G-Y4N" secondAttribute="bottom" constant="8" symbolic="YES" id="yy1-Cv-deD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="菜单栏功能展示" id="5uP-cc-lgG"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="menuView2" destination="9Fd-7G-Y4N" id="yxX-e5-etu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
